@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Address Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="float: left">Addresses Master</h1>
+    <a href="/logout" style="float: right; margin-top: 30px;">
+        <button>Logout</button>
+    </a>
+    <div style="clear:both"></div>
+
+    <div class="form">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="street">Street Name</label>
+                <input type="text" name="street" id="street">
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode</label>
+                <input type="number" name="pincode" id="pincode">
+            </div>
+            <div class="form-group">
+                <label for="country">Country Name</label>
+                <input type="text" name="country" id="country"><br>
+            </div>
+            <div class="form-group">
+                <label for="state">State Name</label>
+                <input type="text" name="state" id="state"><br>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" name="phone_number" id="phone_number"><br>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submit" value="Add Address" style="margin-top: 16px;"><br>
+            </div>
+        </form>
+    </div>
+
+    <hr />
+    <div class="container">
+        <table >
+            <tr>
+                <th>Street</th>
+                <th>Pincode</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+    
+            </tr>
+            {% for addr in addresses %}
+                <tr>
+                    <td>{{ addr[1] }}</td>
+                    <td>{{ addr[2] }}</td>
+                    <td>{{ addr[3] }}</td>
+                    <td>{{ addr[4] }}</td>
+                    <td>{{ addr[5] }}</td>
+                    <td>
+                        <a href="/delete/{{ addr[0] }}">Delete</a>
+                        <br>
+                        <a href="/update/{{ addr[0] }}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+   
+</div>
+{% endblock %}

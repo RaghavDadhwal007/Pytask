@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Addresses</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Address</h1>
+
+    <div class="form">
+        <form action="/update/{{addr[0]}}" method="POST">
+            Street: <input type="text" name="street" id="street" value="{{ addr[1] }}"><br>
+            Pincode: <input type="number" name="pincode" id="pincode" value="{{ addr[2] }}"><br>
+            Country: <input type="text" name="country" id="country" value="{{ addr[3] }}"><br>
+            State: <input type="text" name="state" id="state" value="{{ addr[4] }}"><br>
+            Phone Number: <input type="number" name="phone_number" id="phone_number" value="{{ addr[5] }}"><br>
+            <input type="submit" value="Update Address">
+        </form>
+    </div>
+</div>
+{% endblock %}

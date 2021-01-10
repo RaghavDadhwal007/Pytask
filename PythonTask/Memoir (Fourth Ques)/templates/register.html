@@ -1,0 +1,29 @@
+{% extends 'anotherbase.html' %}
+{% block body %}
+<!-- <form action="/"> -->
+    <div class="container">
+      <h1>Register</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+  
+      {% from "_formhelpers.html" import render_field %}
+      <form method="POST" action="/">
+          <dl>
+              {{render_field(form.username)}}
+              {{render_field(form.password)}}
+              {{render_field(form.confirm)}}
+          </dl>
+          <button type="submit" class="registerbtn">Register</button>
+      </form>
+      
+      {% if error %}
+          <p class="error"><strong>Error:</strong>{{ error }}</p>
+      {% endif %}
+      
+    </div>
+  
+    <div class="container signin">
+      <p>Already have an account? <a href="/login/">Sign in</a>.</p>
+    </div>
+<!-- </form> -->
+{% endblock %}
